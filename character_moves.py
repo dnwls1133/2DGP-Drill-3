@@ -33,6 +33,27 @@ def move_right(amount):
         x += 50
         delay(0.1)
     pass
+def move_up(amount):
+    global x
+    global y
+    for i in range(0,amount,50):
+        draw_boy_and_background(x,y)
+        y += 50
+        delay(0.1)
+
+    pass
+# 캐릭터 아래로 이동
+def move_down(amount):
+    global x
+    global y
+    for i in range(0,amount,50):
+        draw_boy_and_background(x,y)
+        y -= 50
+        delay(0.1)
+
+    pass
+
+
 
 # 캐릭터 좌상 대각선 이동
 def move_diagonal_left_up(amount):
