@@ -106,6 +106,17 @@ def rectangle_move():
     pass
 
 def circle_move():
+    global x
+    global y
+    cx = width / 2
+    cy = (height / 2 + 90) / 1.5
+    radius = cy - 90
+    for theta in range(360, 0, -1):
+        draw_boy_and_background(x, y)
+
+        x = cx + radius * math.cos(math.radians(theta - 90))
+        y = cy + radius * math.sin(math.radians(theta - 90))
+        delay(0.01)
     pass
 
 
