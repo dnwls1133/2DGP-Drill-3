@@ -23,7 +23,15 @@ def draw_boy_and_background(x : float, y : float):
     glass.draw_now(400,30)
     character.draw_now(x,y)
     update_canvas()
-
+# 캐릭터 왼쪽으로 이동
+def move_left(amount):
+    global x
+    global y
+    for i in range(0,amount,50):
+        draw_boy_and_background(x,y)
+        x -= 50
+        delay(0.1)
+    pass
 # 캐릭터 오른쪽으로 이동
 def move_right(amount):
     global x
@@ -90,6 +98,11 @@ def triangle_move():
     pass
 
 def rectangle_move():
+    move_right(200)
+    move_up(400)
+    move_left(400)
+    move_down(400)
+    move_right(200)
     pass
 
 def circle_move():
