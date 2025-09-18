@@ -1,6 +1,11 @@
 from pico2d import *
 
+open_canvas()
 
+glass = load_image('grass.png')
+character = load_image('character.png')
+width = get_canvas_width()
+height = get_canvas_height()
 def triangle_move():
     pass
 
@@ -10,7 +15,7 @@ def rectangle_move():
 def circle_move():
     pass
 
-open_canvas()
+
 # 삼각 운동
 # 사각 운동
 # 원 운동
