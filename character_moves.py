@@ -1,5 +1,7 @@
 from pico2d import *
 
+import math
+
 open_canvas()
 
 glass = load_image('grass.png')
@@ -11,24 +13,57 @@ height = get_canvas_height()
 base_x = width / 2
 base_y = 90
 
+# 캐릭터가 현재 서있는 위치 정보
+x = base_x
+y = base_y
 # 캐릭터 오른쪽으로 이동
 def move_right(amount):
-    pass
-# 캐릭터 좌상 대각선 이동
-def move_diagonal_left_up():
+    global x
+    global y
+    for i in range(0, amount, 50):
+        clear_canvas_now()
+        glass.draw_now(400, 30)
+        character.draw_now(x, y)
+        x += 50
+        delay(0.1)
     pass
 
-# 캐릭터 우하 대각선 이동
-def move_diagonal_right_down():
+# 캐릭터 좌상 대각선 이동
+def move_diagonal_left_up(amount):
+    global x
+    global y
+    theta = 60
+
+    for i in range(0,amount,50):
+        clear_canvas_now()
+        glass.draw_now(400, 30)
+        character.draw_now(x, y)
+        x = x - 50 * math.cos(math.radians(theta))
+        y = y + 50 * math.sin(math.radians(theta))
+        delay(0.1)
+    pass
+
+# 캐릭터 좌하 대각선 이동
+def move_diagonal_right_down(amount):
+    global x
+    global y
+    theta = 300
+    for i in range(0,amount,50):
+        clear_canvas_now()
+        glass.draw_now(400, 30)
+        character.draw_now(x, y)
+        x = x - 50 * math.cos(math.radians(theta))
+        y = y + 50 * math.sin(math.radians(theta))
+        delay(0.1)
     pass
 
 def triangle_move():
     clear_canvas_now()
-    glass.draw_now(400, 30)
-    move_right(400)
-    move_diagonal_left_up()
-    move_diagonal_right_down()
-    delay(0.5)
+    move_right(200)
+    move_diagonal_left_up(400)
+    move_diagonal_right_down(400)
+    move_right(200)
+    delay(0.1)
     pass
 
 def rectangle_move():
